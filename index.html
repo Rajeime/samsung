@@ -212,6 +212,9 @@
         </div>
       </footer>
 
+      <div class="toTopArrow">
+        <img src="images/to-top.png" alt="">
+      </div>
     <script>
         // javascript for slideshow
         let slides = document.querySelector('.slides');
@@ -364,13 +367,52 @@
     const backToTop = document.querySelector('.backToTop')
 
 // back to top
-      backToTop.addEventListener('click', function () {
-        window.scrollTo({
+        backToTop.addEventListener('click', ()=> {
+          window.scrollTo({
           top: 0,
           left: 0,
           behavior: 'smooth',
         })
       })
+
+  // another back to top function
+  let toTopArrow = document.querySelector('.toTopArrow');
+
+  window.addEventListener('scroll', ()=>{
+    if (scrollY >= 50){ 
+      toTopArrow.style.transform = "rotate(0deg)"
+                } 
+    else{
+      toTopArrow.style.transform = "rotate(180deg)"
+    }
+
+    if (scrollY >=1300 ){
+      toTopArrow.style.display = "none"
+    }
+
+    else{
+      toTopArrow.style.display = "block"
+    }
+  })
+
+  toTopArrow.addEventListener('click',()=>{
+    if( toTopArrow.style.transform == "rotate(0deg)"){
+      window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        })
+    }
+
+    else {
+      window.scrollTo({
+          top:760,
+          left: 0,
+          behavior: 'smooth',
+        })
+    }
+  })
+
 
     </script>
         

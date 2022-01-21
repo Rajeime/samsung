@@ -318,7 +318,7 @@ main.ng-enter.ng-enter-active{
    /* .navigation-modal section .items img:hover{
     transform: scale(1.2) ;
    } */
-   .navigation-modal .items:hover  .images img{
+.navigation-modal .items:hover  .images img{
     transform: scale(1.2) ;
    }
   
@@ -386,7 +386,6 @@ main.ng-enter.ng-enter-active{
 }
 
 .each-item img:hover{
-  /* background-color: rgba(0, 0, 0, 0.664); */
   filter: brightness(40%);
   transform: scale(1.2) ;  
  
@@ -396,29 +395,20 @@ main.ng-enter.ng-enter-active{
  color: white;
 }
 
-.each-item  img:hover:after{
-  display: block;
-}
-
-.each-item  div::before{
-  content: "+";
+.each-item div:after{
+  content:url(images/hover-image.png);
+  display: none;
   position: absolute;
-  color: white;
-  height: 100px;
-  width: 100px;
-  z-index: 60;
   top: 0;
-  font-size: 180px;
-  left: 50%;
-  transform: translate(-50%, 20%);
-  opacity: 0;
+  left: 0;
   pointer-events: none;
-  font-weight: lighter;
-  font-family: 'Roboto', sans-serif;
+transform: translate(-10%, -10%);
 }
 
-.each-item  div:hover::before{
-  opacity: 1;
+
+.each-item div:hover:after {
+  content: url(images/hover-image.png); /* no need for qoutes */
+  display: block;
 }
 
 /* event area */
@@ -836,3 +826,17 @@ select {
     line-height: 1;
   }
   
+
+.toTopArrow{
+  position: fixed;
+  right: 30px;
+  bottom: 6px;
+  transition: all 0.45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transform: rotate(180deg)
+} 
+
+.toTopArrow img{
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
