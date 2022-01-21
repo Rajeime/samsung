@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/lib/angular-route.min.js"></script>
+    <script src="app/angular-animate.min.js"></script>
+    <script src="app/lib/app.js"></script>
+</head>
+<body>
+
+     <!--image slider start-->
+    <div class="slideshow-container">
+
+        <nav class="main-nav">
+            <a href=""><img src="images/logo/samsung logo black.png" alt="" class="logo"></a>
+            <a href="#"><i class="fas fa-bars hamburger-menu" data-hamburger-menu></i></a>
+         </nav>
+        
+          <!--slide images start-->
+
+          <div class="slideshow-slides-div">
+            <ul class="slides">
+                <li class="slide current-slide one"> <h4>Galaxy S21 FE 5G</h4><img src="images/slide-images/first.jpg" alt=""></li>
+                <li class="slide two"> <h4>Galaxy Z Flip3 <br>Bespoke Edition</h4><img src="images/slide-images/second.jpg" alt=""> </li>
+                <li class="slide three"> <h4>Galaxy Z Fold3 5G</h4><img src="images/slide-images/third.jpg" alt=""></li>
+                <li class="slide four"> <h4>Galaxy Watch4</h4><img src="images/slide-images/fourth.jpg" alt=""> </li>
+                <li class="slide five"> <h4>Galaxy Buds2</h4><img src="images/slide-images/fifth.jpg" alt=""></li>
+            </ul>
+          </div>
+          <!--slide images end-->
+          
+        <!-- prev button -->
+        <button class="prev-button arrow">&#10094;</button>
+         <!-- next button -->
+         <button class="next-button arrow">&#10095;</button>
+       
+
+        <!-- slideshow navigations -->
+        <div class="slideshow-nav">
+            <button class="indicator current-slide"></button>
+            <button class="indicator"></button>
+            <button class="indicator"></button>
+            <button class="indicator"></button>
+            <button class="indicator"></button>
+        </div>
+    </div>
+
+
+    <!-- design for video section -->
+    <section class="videos">
+      <a href="#" class="playButton first-video">
+        <div class="left-video video">
+          <img src="images/banner_unpacked-galaxy-s21-fe-5g_m.jpg" alt="" class="left-video-image">
+          <h3 class="left-heading">Introducing Galaxy S21 FE @ CES 2022</h3>
+          <button class="left-button">&#9658;</button>
+      </div>
+      </a>
+        
+      <a href="#" class="playButton second-video">
+        <div class="right-video video">
+          <img src="images/banner_unpk-highlights_m.jpg" alt="" class="right-video-image">
+          <h3 class="right-heading">Galaxy Unpacked Part 2 2021: <br> Highlights</h3>
+         <button class="right-button" >&#9658;</button>
+      </div>
+      </a>
+    </section>
+
+    <!-- modal for videos  -->
+
+    <section class="video-modal">
+      <div class="video-modal-content">
+        <p class="close-video-modal">x</p>
+        <iframe width="1100" height="500" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="iframe"></iframe>
+      </div>
+    </section>
+
+
+    <!-- design for navigation after popup -->
+    <div class="navigation-modal" data-navigation-modal>
+
+        <div class="content">
+            <nav ng-controller="navCtrl">
+           
+            
+                <div class="links">
+    
+                    <div class="logo">
+                        <img src="images/logo/samsung logo white.png" alt="" >
+                    </div>
+                    <ul class="nav-modal-ul">
+                        <li ><a href="#!products" ng-class="{active: $route.current.activePage == 'products'}">Products</a></li>
+                        <li ><a href="#!campaigns" ng-class="{active: $route.current.activePage == 'campaigns'}" >Campaigns</a></li>
+                        <li ><a href="#!events" ng-class="{active: $route.current.activePage == 'events'}">Events</a></li>
+                        <li ><a href="#!apps" ng-class="{active: $route.current.activePage == 'apps'}">Apps</a></li>
+                    </ul>
+                </div>
+                
+                <div class="search-remove">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-times" data-hamburger-modal-close></i>
+                </div>
+            </nav>
+    
+           <main ng-view></main>
+
+            <div class="modal-footer">
+                <a href="location.html" target="blank"><p>Go to your Location &nbsp; <i class="fas fa-chevron-up"></i></p></a>
+            </div>
+        </div>
+        
+    </div>
+
+    
+     <!-- product section footer section -->
+     <h1>The All New Galaxy</h1>
+     <div ng-controller="myController" class="phoneCon">
+        <div ng-repeat="phone in phones" class="subItemCon">
+          <div class="phoneInfo">
+            <img src="{{phone.img}}" alt="" />
+            <figcaption>{{phone.brand}}</figcaption>
+          </div>
+        </div>
+      </div>
+  
+      <div ng-controller="myController" class="phoneCon2">
+        <div ng-repeat="item in items" class="subItemCon">
+          <div class="phoneInfo">
+            <img src="{{item.img}}" alt="" />
+            <figcaption>{{item.brand}}</figcaption>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <hr> -->
+      <footer >
+        <div class="share-network">
+          <div class="social">
+            <strong>Share</strong>
+  
+            <ul>
+              <li>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-google-plus"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="network">
+            <button class="f-btn1">C</button>
+            <button class="f-btn2">C</button>
+  
+            <select name="" id="">
+              <option value="my network speed">MY NETWORK SPEED (LOW)</option>
+              <option value="high bandwidth mode">- High bandwidth mode</option>
+              <option value="low bandwidth mode">- Low bandwidth mode</option>
+            </select>
+  
+            <a class="site-map lower-button" href="#" >
+              SITE MAP
+            </a>
+            <a class="global lower-button" href="location.html">GLOBAL SAMSUNG</a>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col1">
+            <a href="https//www.samsung.com">
+              <img
+                src="https://www.samsung.com/global/galaxy/common/images/logo_samsung_x2.png"
+                alt="SAMSUNG"
+              />
+            </a>
+          </div>
+          <div class="col2">
+            <p>
+              ALL CONTENTS COPYRIGHT &COPY; SAMSUNG ELECTRONICS CO., LTD.
+            </p>
+            <a href="https://www.samsung.com">SAMSUNG.COM</a>
+            <a href="http://www.samsungmobilepress.com">
+              SAMSUNGMOBILEPRESS.COM
+            </a>
+            <a href="http://news.samsung.com/global/">SAMSUNG NEWSROOM</a>
+            <a href="http://developer.samsung.com">SAMSUNG DEVELOPERS</a>
+            <a href="http://design.samsung.com/global/">DESIGN SAMSUNG</a>
+          </div>
+          <div class="col3">
+            <a href="#">
+              More
+              <i class="fas fa-arrow-down"></i>
+            </a>
+            <a class="backToTop" href="#">
+              Back to Top
+              <i class="fas fa-arrow-up"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        // javascript for slideshow
+        let slides = document.querySelector('.slides');
+        let eachSlides = Array.from(slides.children);
+
+        // next and prev buttons
+        let prevButton = document.querySelector('.prev-button');
+        let nextButton = document.querySelector('.next-button');
+
+        let slideshowNav = document.querySelector('.slideshow-nav')
+        let dots = Array.from(slideshowNav.children)
+
+        let slidewidth = eachSlides[0].getBoundingClientRect().width
+
+        eachSlides.forEach((slide, index)=>{
+            slide.style.left = slidewidth * index + 'px'
+        })
+
+        const moveToSlide = (slides, currentSlide, targetSlide) =>{
+            slides.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+            currentSlide.classList.remove('current-slide');
+            targetSlide.classList.add('current-slide');   
+        }
+
+        const updateDots = (currentDot, targetDot) =>{
+            currentDot.classList.remove('current-slide');
+            targetDot.classList.add('current-slide')
+        }
+        
+
+        nextButton.addEventListener('click',(e)=>{
+            const currentSlide = slides.querySelector('.current-slide');
+            const nextSlide = currentSlide.nextElementSibling;
+            const currentDot = slideshowNav.querySelector('.current-slide');
+            const nextDot = currentDot.nextElementSibling;
+            moveToSlide(slides, currentSlide, nextSlide)
+            updateDots(currentDot, nextDot)
+        })
+
+
+        prevButton.addEventListener('click',(e)=>{
+            const currentSlide = slides.querySelector('.current-slide');
+            const prevSlide = currentSlide.previousElementSibling;
+            const currentDot = slideshowNav.querySelector('.current-slide');
+            const prevDot = currentDot.previousElementSibling;
+            moveToSlide(slides, currentSlide, prevSlide)
+            updateDots(currentDot, prevDot)
+        })
+
+        // dots slideshow
+        slideshowNav.addEventListener('click',(e)=>{
+            const targetDot = e.target.closest('button');
+
+            // if(!targetDot)return
+
+            const currentSlide = slides.querySelector('.current-slide');
+            const currentDot = slideshowNav.querySelector('.current-slide');
+            const targetIndex = dots.findIndex(dot => dot === targetDot)
+            const targetSlide = eachSlides[targetIndex];
+
+            moveToSlide(slides, currentSlide, targetSlide);
+            updateDots(currentDot, targetDot)
+
+        })
+
+        // javascript for modal navigation
+        
+        let hamburgerMenu = document.querySelector('[data-hamburger-menu]');
+        let navigationModal = document.querySelector('[data-navigation-modal]')
+        let navigationModalClose = document.querySelector('[data-hamburger-modal-close]')
+        
+        hamburgerMenu.addEventListener('click' , ()=>{
+            navigationModal.style.display = "block";
+            hamburgerMenu.style.transform = "rotate(180deg)";
+            document.body.style.overflow = "hidden"
+            navigationModal.style.overflowX ="hidden"
+        })
+
+        navigationModalClose.addEventListener('click', ()=>{
+            navigationModal.style.display = "none"
+            hamburgerMenu.style.transform = "rotate(-180deg)"
+            document.body.style.overflowY = "auto"
+            document.body.style.overflowX = "hidden"
+        })
+
+
+        // javascript for video modal 
+        let videoModal = document.querySelector('.video-modal');
+        let playButtons = document.querySelectorAll('.playButton');
+        let closeVideoModal = document.querySelector('.close-video-modal');
+        let iframe = document.querySelector('.iframe')
+    
+        playButtons.forEach(element =>{
+          element.addEventListener('click',()=>{
+            videoModal.style.display = "block"
+            document.body.style.overflow = "hidden"
+          })
+
+          playButtons[0].addEventListener('click',()=>{
+            iframe.src = "https://www.youtube.com/embed/wf-LD4IrZOQ "
+            iframe.src += "?autoplay=1"
+          })
+        })
+
+        playButtons[1].addEventListener('click',()=>{
+            iframe.src = "https://www.youtube.com/embed/tzO8CYD2kuQ "
+            iframe.src += "?autoplay=1"
+          })
+
+        closeVideoModal.addEventListener('click', ()=>{
+          videoModal.style.display = "none"
+          document.body.style.overflowY = "auto"
+          document.body.style.overflowX = "hidden"
+          iframe.src = ""
+        })
+
+
+        // on scroll behaviour of navigation hamburger menu 
+
+        const onLeave = ()=>{
+                hamburgerMenu.style.backgroundColor = "initial"
+                hamburgerMenu.style.color = "initial";
+                if (scrollY >= 50){ 
+                hamburgerMenu.style.backgroundColor ="#6d6e6e";
+                hamburgerMenu.style.color ="white";} 
+        }
+
+        const onEnter = ()=>{
+                hamburgerMenu.style.backgroundColor = "black"
+                hamburgerMenu.style.color = "white"
+        }
+
+        window.addEventListener('scroll', ()=>{
+            if (scrollY >= 50){ 
+                hamburgerMenu.style.backgroundColor ="#6d6e6e";
+                hamburgerMenu.style.color ="white";} 
+
+                else { hamburgerMenu.style.backgroundColor ="initial"
+                hamburgerMenu.style.color ="initial";}
+                
+                hamburgerMenu.addEventListener('mouseenter',onEnter)
+                
+                hamburgerMenu.addEventListener('mouseleave', onLeave)
+          })
+
+      hamburgerMenu.addEventListener('mouseenter',onEnter)
+
+      hamburgerMenu.addEventListener('mouseleave', onLeave)
+
+    const backToTop = document.querySelector('.backToTop')
+
+// back to top
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        })
+      })
+
+    </script>
+        
+</body>
+</html>
+
+
+
