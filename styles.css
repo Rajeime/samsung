@@ -264,15 +264,21 @@ main.ng-enter.ng-enter-active{
   border: none;
 } */
 
-.navigation-modal nav .search-remove i{
-    padding-left: 40px;
+.navigation-modal nav .search-remove {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.navigation-modal nav .search-remove i{
-    font-size: 28px;
-    cursor: pointer;
+.navigation-modal nav .nav-modal-close{
+  width: 24px;
+  height: 24px;
 }
-  
+
+.navigation-modal nav .nav-modal-search{
+  height: 84px;
+  width: 84px;
+}
 
 @keyframes blowUpModal {
     0% {
@@ -386,9 +392,7 @@ main.ng-enter.ng-enter-active{
 }
 
 .each-item img:hover{
-  filter: brightness(40%);
   transform: scale(1.2) ;  
- 
 }
 
 .each-item img:hover + h3{
@@ -575,13 +579,12 @@ transform: translate(-10%, -10%);
 .video-modal .close-video-modal{
   position: absolute;
   font-size: 42px;
-  color: #767777;
-  top: 0;
   right: 20px;
+  top: 50px;
   cursor: pointer;
-  font-weight: bold;
-  margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
+  /* margin-top: 20px; */
+  width: 25px;
+  height: 25px;
 }
 
 .video-modal .video-modal-content{
