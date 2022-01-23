@@ -38,9 +38,11 @@
           <!--slide images end-->
           
         <!-- prev button -->
-        <button class="prev-button arrow">&#10094;</button>
+        <!-- <button class="prev-button arrow">&#10094;</button> -->
+        <img src="images/left.png" alt="" class="prev-button arrow">
          <!-- next button -->
-         <button class="next-button arrow">&#10095;</button>
+         <!-- <button class="next-button arrow">&#10095;</button> -->
+         <img src="images/right.png" alt="" class="next-button arrow">
        
 
         <!-- slideshow navigations -->
@@ -56,19 +58,19 @@
 
     <!-- design for video section -->
     <section class="videos">
-      <a href="#" class="playButton first-video">
+      <a href="#" class="playButton each-video">
         <div class="left-video video">
-          <img src="images/banner_unpacked-galaxy-s21-fe-5g_m.jpg" alt="" class="left-video-image">
+          <img src="images/banner_unpacked-galaxy-s21-fe-5g_m.jpg" alt="" class="left-video-image video-button">
           <h3 class="left-heading">Introducing Galaxy S21 FE @ CES 2022</h3>
-          <button class="left-button">&#9658;</button>
+          <img src="images/play-buttonz-before.png" alt="" class="left-button button">
       </div>
       </a>
         
-      <a href="#" class="playButton second-video">
+      <a href="#" class="playButton each-video">
         <div class="right-video video">
-          <img src="images/banner_unpk-highlights_m.jpg" alt="" class="right-video-image">
+          <img src="images/banner_unpk-highlights_m.jpg" alt="" class="right-video-image video-button">
           <h3 class="right-heading">Galaxy Unpacked Part 2 2021: <br> Highlights</h3>
-         <button class="right-button" >&#9658;</button>
+         <img src="images/play-buttonz-before.png" alt="" class="right-button button">
       </div>
       </a>
     </section>
@@ -77,8 +79,7 @@
 
     <section class="video-modal">
       <div class="video-modal-content">
-        <!-- <p class="close-video-modal">x</p> -->
-        <img src="images/video-modal-close.png" alt="" class="close-video-modal">
+        <img src="images/video-modal/video-modal-close.png" alt="" class="close-video-modal">
         <iframe width="1100" height="500" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="iframe"></iframe>
       </div>
     </section>
@@ -89,8 +90,7 @@
 
         <div class="content">
             <nav ng-controller="navCtrl">
-           
-            
+         
                 <div class="links">
     
                     <div class="logo">
@@ -105,8 +105,8 @@
                 </div>
                 
                 <div class="search-remove">
-                    <img src="images/search bar.jpg" alt="" class="nav-modal-search">
-                    <img src="images/close.gif" alt="" data-hamburger-modal-close class="nav-modal-close">
+                    <img src="images/nav-modal/search bar.jpg" alt="" class="nav-modal-search">
+                    <img src="images/nav-modal/close.gif" alt="" data-hamburger-modal-close class="nav-modal-close">
                 </div>
             </nav>
     
@@ -148,16 +148,16 @@
   
             <ul>
               <li>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-facebook-f facebook"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-twitter twitter"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fab fa-google-plus"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g google-plus"></i></a>
               </li>
               <li>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-linkedin linkedin"></i></a>
               </li>
             </ul>
           </div>
@@ -173,9 +173,9 @@
             </select>
   
             <a class="site-map lower-button" href="#" >
-              SITE MAP
+              SITE MAP <span></span> <img src="images/on-button-arrow.png" alt="">
             </a>
-            <a class="global lower-button" href="location.html">GLOBAL SAMSUNG</a>
+            <a class="global lower-button" href="location.html">GLOBAL SAMSUNG <img src="images/on-button-arrow.png" alt=""></a>
           </div>
         </div>
   
@@ -204,7 +204,7 @@
             <a href="#">
               More
               <i class="fas fa-arrow-down"></i>
-            </a>
+            </a> &nbsp; &nbsp; &nbsp;
             <a class="backToTop" href="#">
               Back to Top
               <i class="fas fa-arrow-up"></i>
@@ -339,7 +339,7 @@
                 hamburgerMenu.style.backgroundColor = "initial"
                 hamburgerMenu.style.color = "initial";
                 if (scrollY >= 50){ 
-                hamburgerMenu.style.backgroundColor ="#6d6e6e";
+                hamburgerMenu.style.backgroundColor ="rgba(90, 90, 90, 0.5)";
                 hamburgerMenu.style.color ="white";} 
         }
 
@@ -350,7 +350,7 @@
 
         window.addEventListener('scroll', ()=>{
             if (scrollY >= 50){ 
-                hamburgerMenu.style.backgroundColor ="#6d6e6e";
+                hamburgerMenu.style.backgroundColor ="rgba(90, 90, 90, 0.5)";
                 hamburgerMenu.style.color ="white";} 
 
                 else { hamburgerMenu.style.backgroundColor ="initial"
